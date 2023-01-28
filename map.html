@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    />
+    <link rel="stylesheet" href="map.css" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gezgin Satıcı</title>
+  </head>
+  <body>
+    <div id="harita"></div>
+    <button class="hesapla" onclick="createRoute()">Hesapla</button>
+    <button class="temizle" onclick="deleteRoute()">Temizle</button>
+    <p class="sayac">Konum sayısı : <span id="sayacSpan">0</span>/20</p>
+    <div id="coordinatDiv">
+      <p class="coordinatP">Koordinatlar</p>
+      <table class="coordinatTitle">
+        <tr>
+          <td class="tableNo">Sıra</td>
+          <td class="tableTd">Enlem</td>
+          <td class="tableTd">Boylam</td>
+        </tr>
+      </table>
+      <table id="coordinatTable"></table>
+    </div>
+    <div id="distanceDiv">
+      <p class="distanceP">Uzaklık Tablosu</p>
+      <table id="distanceTable"></table>
+    </div>
+    <div class="parameters">
+      <label for="">İterasyon Sayısı</label>
+      <input type="number" id="iterationNumber" placeholder="Örnek: 100" />
+      <label for="">Çaprazlama</label>
+      <input type="number" id="crossOverNumber" placeholder="Örnek: 0.6" />
+      <label for="">Mutasyon</label>
+      <input type="number" id="mutationNumber" placeholder="Örnek: 0.05" />
+    </div>
+    <div class="sorting">
+      <p>Yol sırası :</p>
+      <p id="sortingP"></p>
+    </div>
+    <div id="alert-modal" class="alertModal">
+      <span id="alert-modal-text"></span>
+      <button id="alert-modal-close" class="alertCloseButton">KAPAT</button>
+    </div>
+    <div class="downloadCSV">
+      <button id="markersCSV">Koordinat Tablosunu İndir(CSV)</button>
+      <button id="distanceCSV">Uzaklık Tablosunu İndir(CSV)</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/json2csv"></script>
+    <script src="map.js"></script>
+  </body>
+</html>
